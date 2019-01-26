@@ -1,0 +1,113 @@
+/* --- Cosmetic --- */
+#header-wrapper {
+    background: #559bdf;
+}
+
+#footer-wrapper {
+    background-color: #559bdf;
+    color: #FFF;
+}
+
+#footer-wrapper a {
+    color: #FFF;
+}
+
+
+/* --- Home page portals --- */
+.portal-pane {
+    display: flex;
+    min-height: 500px;
+    margin-top: -135px;
+    background-size: cover !important;
+    background-position: center !important;
+    box-shadow: inset 0 11px 8px -10px #000, inset 0 -11px 8px -10px #000;
+    overflow: hidden;
+    transition: 1s;
+    padding: 20px;
+}
+
+/*Prevent first pane from merging with the header*/
+.portal-pane:first-child {
+    margin-top: 0;
+}
+
+.portal-inner-wrapper, .portal-inner-wrapper span, .portal-pane a {
+    text-shadow: 0 0 8px black;
+    filter: drop-shadow(0 0 1px #666);
+    color: white;
+    text-decoration: none;
+    transition: 500ms;
+}
+
+/*Skew divs, even to one direction, odd to the other*/
+.portal-pane:nth-of-type(even), .portal-pane:nth-of-type(odd) > .portal-inner-wrapper {
+    transform: skewY(-5deg);
+}
+
+.portal-pane:nth-of-type(even) > .portal-inner-wrapper {
+    transform: skewY(5deg);
+    text-align: right;
+}
+
+.portal-pane:nth-of-type(odd) {
+    transform: skewY(5deg);
+}
+
+/*Prevent first child from skewing*/
+.portal-pane:first-child, .portal-pane:first-child .portal-inner-wrapper {
+    transform: skewY(0deg);
+}
+
+.portal-pane:first-child .portal-inner-wrapper {
+    margin-top: 20px;
+}
+
+.portal-pane:first-child .credit a {
+    text-align: right;
+}
+
+/* Unskew on mouse hover */
+.portal-pane:hover, .portal-pane:hover .portal-inner-wrapper, .portal-pane:hover + .portal-pane, .portal-pane:hover + .portal-pane .portal-inner-wrapper {
+    transform: skewY(0deg) !important;
+}
+
+.portal-pane p {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Pane layout*/
+.portal-inner-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Format portal panes as rows, flip the even ones */
+.portal-pane:nth-of-type(odd) > .portal-inner-wrapper {
+    flex-flow: row;
+}
+
+.portal-pane:nth-of-type(even) > .portal-inner-wrapper {
+    flex-flow: row-reverse;
+}
+
+/* Format the credit layout div */
+.portal-inner-wrapper .credit {
+    font-size: 10px;
+    display: flex;
+    flex-flow: column;
+}
+
+/* Inflate the space between the pane text and the image credit line */
+.portal-inner-wrapper .expand {
+    flex-grow: 1;
+}
+
+.credit > a {
+    margin-bottom: 130px;
+}
+
+.portal-pane:last-of-type .credit > a {
+    margin-bottom: 0;
+}

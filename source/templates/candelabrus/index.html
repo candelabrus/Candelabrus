@@ -1,0 +1,95 @@
+{% extends 'candelabrus/base-candelabrus.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+    <div class="portal-pane" style="background: url('{% static 'candelabrus/candelabum.jpg' %}')">
+        <div class="portal-inner-wrapper" style="flex-direction: column">
+            <div>
+                <span style="font-size: 1.2em">
+                {% trans "The candelabrum project is an aggregation of ideas to help us project our voices into society." %}<br>
+                    {% trans "One shouldn't feel powerless, surrounded by millions within systems that simply refuse to change." %}<br>
+                {% trans "Shed your misconceptions, share great ideas to move us forward, join the choice of our future, know your allies, share your knowledge!" %}
+                </span>
+            </div>
+            <div class="credit">
+                <span class="expand"></span>
+                <a href="https://unsplash.com/@andresuran">Image by Andres Uran</a>
+            </div>
+        </div>
+    </div>
+    <div class="portal-pane" style="background: url('{% static 'candelabrus/fons.jpg' %}')">
+        <div class="portal-inner-wrapper">
+            <div>
+                <a href="#"><h1>Fons</h1></a>
+                <h2>{% trans "Know the truth" %}</h2>
+                <p>
+                    {% trans "Sanitize information sources, report the moment." %}<br>
+                    {% trans "This is a portal aimed at sourcing history, be it last hour's or century." %}<br>
+                    {% trans "One shall not fall for the fake news." %}
+                </p>
+            </div>
+            <div class="credit">
+                <span class="expand"></span>
+                <a href="http://jomarthomas.com">Image by Jomar Thomas</a>
+            </div>
+        </div>
+    </div>
+    <div class="portal-pane" style="background: url('{% static 'candelabrus/nietz.jpg' %}')">
+        <div class="portal-inner-wrapper">
+            <div>
+                <a href="#"><h1>Nietz</h1></a>
+                <h2>{% trans "Learn arguing" %}</h2>
+                <p>
+                    {% trans "Get insights on argumentation and its flaws." %}<br>
+                    {% trans "Good discussions are built from logic, not feelings." %}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="portal-pane" style="background: url('{% static 'candelabrus/dejure.jpg' %}')">
+        <div class="portal-inner-wrapper">
+            <div>
+                <a href="#"><h1>DeJure</h1></a>
+                <h2>{% trans "Law understood" %}</h2>
+                <p>{% trans "Law is confusing, let's simplify it!" %}</p>
+            </div>
+        </div>
+    </div>
+    <div class="portal-pane" style="background: url('{% static 'candelabrus/darwin.jpg' %}')">
+        <div class="portal-inner-wrapper">
+            <div>
+                <a href="#"><h1>Darwin</h1></a>
+                <h2>{% trans "Society, evolved" %}</h2>
+                <p>
+                    {% trans "Are you good at finding solutions? Great! Tell us how to solve our problems." %}<br>
+                    {% trans "From your neighbourhood to your continent, improve everything!" %}
+                </p>
+            </div>
+            <div class="credit">
+                <span class="expand"></span>
+                <a href="https://sciencebriefss.com/">Image by Science Briefss</a>
+            </div>
+        </div>
+    </div>
+    <div class="portal-pane" style="background: url('{% static 'candelabrus/mereokratos.jpg' %}')">
+        <div class="portal-inner-wrapper">
+            <div>
+                <a href="#"><h1>Mereokratos</h1></a>
+                <h2>{% trans "Better representation" %}</h2>
+                <p>
+                    {% trans "Politicians don't have to be bad." %}<br>
+                    {% trans "Aim the magnifying glass. Find who shares your ideals. Know if they're up to their words." %}
+                </p>
+            </div>
+            <div class="credit">
+                <span class="expand"></span>
+                <a href="https://inmaibanezc.wordpress.com/">Image by Inma Ibáñez</a>
+            </div>
+        </div>
+    </div>
+    <span style="font-size: 2em; font-weight: bold; margin-bottom: 40px; margin-right: 20px; float: right;">
+        {% trans "Make your voice heard!" %}
+    </span>
+    <span class="clearfix"></span>
+{% endblock %}
