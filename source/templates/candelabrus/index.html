@@ -1,4 +1,4 @@
-{% extends 'candelabrus/base-candelabrus.html' %}
+{% extends 'candelabrus/base.html' %}
 {% load i18n %}
 {% load static %}
 
@@ -21,7 +21,7 @@
     <div class="portal-pane" style="background: url('{% static 'fons/background.jpg' %}')">
         <div class="portal-inner-wrapper">
             <div>
-                <a href="#"><h1>Fons</h1></a>
+                <h1><a href="{% url 'fons:index' %}">Fons</a></h1>
                 <h2>{% trans "Know the truth" %}</h2>
                 <p>
                     {% trans "Sanitize information sources, report the moment." %}<br>
@@ -38,7 +38,7 @@
     <div class="portal-pane" style="background: url('{% static 'nietz/background.jpg' %}')">
         <div class="portal-inner-wrapper">
             <div>
-                <a href="#"><h1>Nietz</h1></a>
+                <h1><a href="{% url 'nietz:index' %}">Nietz</a></h1>
                 <h2>{% trans "Learn arguing" %}</h2>
                 <p>
                     {% trans "Get insights on argumentation and its flaws." %}<br>
@@ -50,7 +50,7 @@
     <div class="portal-pane" style="background: url('{% static 'dejure/background.jpg' %}')">
         <div class="portal-inner-wrapper">
             <div>
-                <a href="#"><h1>DeJure</h1></a>
+                <h1><a href="{% url 'dejure:index' %}">DeJure</a></h1>
                 <h2>{% trans "Law understood" %}</h2>
                 <p>{% trans "Law is confusing, let's simplify it!" %}</p>
             </div>
@@ -59,7 +59,7 @@
     <div class="portal-pane" style="background: url('{% static 'darwin/background.jpg' %}')">
         <div class="portal-inner-wrapper">
             <div>
-                <a href="#"><h1>Darwin</h1></a>
+                <h1><a href="{% url 'darwin:index' %}">Darwin</a></h1>
                 <h2>{% trans "Society, evolved" %}</h2>
                 <p>
                     {% trans "Are you good at finding solutions? Great! Tell us how to solve our problems." %}<br>
@@ -75,7 +75,7 @@
     <div class="portal-pane" style="background: url('{% static 'mereokratos/background.jpg' %}')">
         <div class="portal-inner-wrapper">
             <div>
-                <a href="#"><h1>Mereokratos</h1></a>
+                <h1><a href="{% url 'mereokratos:index' %}">Mereokratos</a></h1>
                 <h2>{% trans "Better representation" %}</h2>
                 <p>
                     {% trans "Politicians don't have to be bad." %}<br>

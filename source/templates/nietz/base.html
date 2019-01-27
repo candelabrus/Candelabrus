@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{% static "nietz/favicon.png" %}"/>
+    <link rel="stylesheet" href="{% static 'nietz/style.css' %}">
+{% endblock %}
+
+{% block header %}
+    <img id="logo" src="{% static "nietz/icon.svg" %}">
+    <div id="title-wrapper">
+        <span id="title">Nietz</span><br>
+        {% trans "Learn arguing" %}
+    </div>
+    <nav id="header-nav">
+    </nav>
+{% endblock %}

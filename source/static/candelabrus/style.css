@@ -1,11 +1,6 @@
 /* --- Cosmetic --- */
-#header-wrapper {
+#header-wrapper, #footer-wrapper {
     background: #559bdf;
-}
-
-#footer-wrapper {
-    background-color: #559bdf;
-    color: #FFF;
 }
 
 #footer-wrapper a {

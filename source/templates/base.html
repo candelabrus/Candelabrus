@@ -1,0 +1,67 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Open+Sans|Roboto|Ubuntu" rel="stylesheet">
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+<div id="header-wrapper">
+    <header class="width-limiter">
+        {% block header %}
+        {% endblock %}
+    </header>
+</div>
+<div id="center-wrapper">
+    <div class="width-limiter">
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+<div id="footer-wrapper">
+    <footer class="width-limiter">
+        <nav id="portals">
+            <a href="#" data-balloon="{% trans "Support for illumination" %}" data-balloon-pos="up">
+                <img src="{% static "candelabrus/icon.svg" %}">
+                <span>Candelabrus</span>
+            </a>
+            <a href="{% url 'fons:index' %}" data-balloon="{% trans "Know the truth" %}" data-balloon-pos="up">
+                <img src="{% static "fons/icon.svg" %}">
+                <span>Fons</span>
+            </a>
+            <a href="{% url 'nietz:index' %}" data-balloon="{% trans "Learn arguing" %}" data-balloon-pos="up">
+                <img src="{% static "nietz/icon.svg" %}">
+                <span>Nietz</span>
+            </a>
+            <a href="{% url 'dejure:index' %}" data-balloon="{% trans "Law understood" %}" data-balloon-pos="up">
+                <img src="{% static "dejure/icon.svg" %}">
+                <span>DeJure</span>
+            </a>
+            <a href="{% url 'darwin:index' %}" data-balloon="{% trans "Society evolved" %}" data-balloon-pos="up">
+                <img src="{% static "darwin/icon.svg" %}">
+                <span>Darwin</span>
+            </a>
+            <a href="{% url 'mereokratos:index' %}" data-balloon="{% trans "Better representation" %}" data-balloon-pos="up">
+                <img src="{% static "mereokratos/icon.svg" %}">
+                <span>Mereokratos</span>
+            </a>
+        </nav>
+        <nav id="footer-links">
+            <a href="#">FAQ</a>
+            <a href="#">{% trans "Privacy" %}</a>
+            <a href="#">{% trans "About" %}</a>
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                <img alt="Creative Commons License" style="border-width:0"
+                     src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"/>
+            </a>
+        </nav>
+    </footer>
+</div>
+</body>
+</html>

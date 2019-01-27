@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{% static "darwin/favicon.png" %}"/>
+    <link rel="stylesheet" href="{% static 'darwin/style.css' %}">
+{% endblock %}
+
+{% block header %}
+    <img id="logo" src="{% static "darwin/icon.svg" %}">
+    <div id="title-wrapper">
+        <span id="title">Darwin</span><br>
+        {% trans "Society evolved" %}
+    </div>
+    <nav id="header-nav">
+    </nav>
+{% endblock %}

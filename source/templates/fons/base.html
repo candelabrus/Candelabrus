@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{% static "fons/favicon.png" %}"/>
+    <link rel="stylesheet" href="{% static 'fons/style.css' %}">
+{% endblock %}
+
+{% block header %}
+    <img id="logo" src="{% static "fons/icon.svg" %}">
+    <div id="title-wrapper">
+        <span id="title">Fons</span><br>
+        {% trans "Know the truth" %}
+    </div>
+    <nav id="header-nav">
+    </nav>
+{% endblock %}

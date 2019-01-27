@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{% static "dejure/favicon.png" %}"/>
+    <link rel="stylesheet" href="{% static 'dejure/style.css' %}">
+{% endblock %}
+
+{% block header %}
+    <img id="logo" src="{% static "dejure/icon.svg" %}">
+    <div id="title-wrapper">
+        <span id="title">DeJure</span><br>
+        {% trans "Law understood" %}
+    </div>
+    <nav id="header-nav">
+    </nav>
+{% endblock %}
