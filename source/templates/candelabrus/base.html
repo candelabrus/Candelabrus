@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="{% static 'candelabrus/style.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Open+Sans|Roboto|Ubuntu" rel="stylesheet">
     {% block head %}
@@ -27,6 +27,10 @@
 <div id="footer-wrapper">
     <footer class="width-limiter">
         <nav id="portals">
+            <a href="#" data-balloon="{% trans "Support for illumination" %}" data-balloon-pos="up">
+                <img src="{% static "candelabrus/icon.svg" %}">
+                <span>Candelabrus</span>
+            </a>
             <a href="#" data-balloon="{% trans "Know the truth" %}" data-balloon-pos="up">
                 <img src="{% static "fons/icon.png" %}">
                 <span>Fons</span>

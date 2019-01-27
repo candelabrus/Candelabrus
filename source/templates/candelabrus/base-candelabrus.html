@@ -3,12 +3,12 @@
 {% load static %}
 
 {% block head %}
-    <link rel="shortcut icon" href="{% static "candelabrus/favicon.png" %}"/>
+    <link rel="shortcut icon" href="{% static "candelabrus/icon.svg" %}"/>
     <link rel="stylesheet" href="{% static 'candelabrus/candelabrus.css' %}">
 {% endblock %}
 
 {% block header %}
-    <img id="logo" src="{% static "candelabrus/logo.o.svg" %}">
+    <img id="logo" src="{% static "candelabrus/icon.png" %}">
     <div id="title-wrapper">
         <span id="title">Candelabrus</span><br>
         {% trans "Support for enlightenment" %}
