@@ -22,13 +22,13 @@ body {
 }
 
 /* --- HEADER --- */
-#header-wrapper .width-limiter{
+#header-wrapper .width-limiter {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
 }
 
-#header-nav{
+#header-nav {
     height: 100%;
     align-self: center;
     font-weight: bold;
@@ -116,6 +116,11 @@ body {
     width: 32px;
     height: 32px;
     vertical-align: middle;
+}
+
+#portals a:first-child {
+    padding-right: 5px;
+    border-right: 1px solid #777;
 }
 
 #footer-links {
