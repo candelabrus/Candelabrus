@@ -4,6 +4,7 @@ from candelabrus import views
 
 urlpatterns = [
     path('', views.index),
+    path('markdownx/', include('markdownx.urls')),
     path('admin/', admin.site.urls),
     path('fo/', include('fons.urls')),
     path('dj/', include('dejure.urls')),
