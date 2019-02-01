@@ -7,7 +7,7 @@
         <h2>{% trans "Estas são as falácias mas abrangentes, carrega nelas para aprenderes mais:" %}</h2>
         <div class="fallacies">
             {% for fallacy in fallacies %}
-                <div class="fallacy">
+                <div class="fallacy{% if fallacy.fallacy.parent is not None %} child{% endif %}">
                     {% if fallacy.fallacy.image %}
                         <img src="{{ fallacy.fallacy.image.url }}"/>
                     {% else %}
@@ -24,7 +24,7 @@
             <h2>{% trans "There are a few more, but they haven't been translated yet:" %}</h2>
             <div class="fallacies">
                 {% for fallacy in untranslated_fallacies %}
-                    <div class="fallacy">
+                    <div class="fallacy{% if fallacy.fallacy.parent is not None %} child{% endif %}">
                         {% if fallacy.fallacy.image %}
                             <img src="{{ fallacy.fallacy.image.url }}"/>
                         {% else %}

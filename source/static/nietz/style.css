@@ -65,9 +65,13 @@
     background-color: #f5f5f5;
 }
 
+.fallacy.child {
+    display: none;
+}
+
 .fallacy img {
-    max-width: 64px;
-    max-height: 64px;
+    width: 64px;
+    height: 64px;
 }
 
 .fallacy > div {
