@@ -1,0 +1,64 @@
+{% extends 'nietz/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+    <div class="formatter">
+        <h1>{{ fallacy.name.capitalize }}</h1>
+        <h2>{{ fallacy.fallacy.name.capitalize }}</h2>
+        <p>
+            {{ fallacy.description }}
+        </p>
+        <h3>{% trans "Examples of this fallacy:" %}</h3>
+        {% if fallacy.examples.exists %}
+            <div class="fallacies">
+                {% for example in fallacy.examples.all %}
+                    <div class="fallacy">{{ example.content }}</div>
+                {% endfor %}
+            </div>
+        {% else %}
+            {% trans "No translated examples of this fallacy." %} <a href="#">{% trans "Contribute some!" %}</a>
+        {% endif %}
+        {% if children.exists or untranslated_children.exists %}
+            <h3>{% trans "Cases of this fallacy" %}:</h3>
+            <div class="fallacies">
+                {% for child in children %}
+                    <div class="fallacy">
+                        {% if child.fallacy.image %}
+                            <img src="{{ child.fallacy.image.url }}"/>
+                        {% else %}
+                            <img src="{% static 'nietz/icon.svg' %}"/>
+                        {% endif %}
+                        <div>
+                            <a href="{% url 'nietz:fallacy' child.fallacy.id %}"
+                               class="name">{{ child.name.capitalize }}</a>
+                            <span class="description">{{ child.description }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% for child in untranslated_children %}
+                {{ child.name }}
+            {% endfor %}
+        {% endif %}
+        {% if related.exists or untranslated_related.exists %}
+            <h3>{% trans "Related fallacies" %}:</h3>
+            <div class="fallacies">
+                {% for fallacy in related %}
+                    <div class="fallacy">
+                        {% if fallacy.fallacy.image %}
+                            <img src="{{ fallacy.fallacy.image.url }}"/>
+                        {% else %}
+                            <img src="{% static 'nietz/icon.svg' %}"/>
+                        {% endif %}
+                        <div>
+                            <a href="{% url 'nietz:fallacy' fallacy.fallacy.id %}"
+                               class="name">{{ fallacy.name.capitalize }}</a>
+                            <span class="description">{{ fallacy.description }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

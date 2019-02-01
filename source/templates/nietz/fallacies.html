@@ -14,7 +14,7 @@
                         <img src="{% static 'nietz/icon.svg' %}"/>
                     {% endif %}
                     <div>
-                        <a href="#" class="name">{{ fallacy.name.capitalize }}</a>
+                        <a href="{% url 'nietz:fallacy' fallacy.fallacy.id %}" class="name">{{ fallacy.name.capitalize }}</a>
                         <span class="description">{{ fallacy.description }}</span>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                             <img src="{% static 'nietz/icon.svg' %}"/>
                         {% endif %}
                         <div>
-                            <a href="#" class="name">{{ fallacy.name.title }}</a>
+                            <a href="{% url 'nietz:fallacy' fallacy.fallacy.id %}" class="name">{{ fallacy.name.capitalize }}</a>
                             <span class="description">{{ fallacy.description }}</span>
                         </div>
                     </div>

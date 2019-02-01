@@ -6,4 +6,5 @@ app_name = 'nietz'
 urlpatterns = [
     path('', views.index, name='index'),
     path('f/', views.fallacies, name='fallacies'),
+    path('f/<int:identifier>/', views.fallacy, name='fallacy'),
 ]

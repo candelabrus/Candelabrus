@@ -48,7 +48,7 @@ class LocalizedFallacy(djm.Model):
 
 
 class FallacyExample(djm.Model):
-    parent = djm.ForeignKey(LocalizedFallacy, on_delete=djm.PROTECT)
+    parent = djm.ForeignKey(LocalizedFallacy, on_delete=djm.PROTECT, related_name="examples")
     content = MarkdownxField()
     explanation = MarkdownxField()
 
