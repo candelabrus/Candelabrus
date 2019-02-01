@@ -2,5 +2,40 @@
 {% load i18n %}
 {% load static %}
 
+{% block head %}
+    {{ block.super }}
+    <style>
+    </style>
+{% endblock %}
+
 {% block content %}
+    <nav id="index">
+        <div class="index-pane" style="background-image: url('{% static 'nietz/basic-concepts.jpg' %}')">
+            <div>
+                <a href="#" class="index-pane-title">
+                    <h1>{% trans "Understand basic concepts" %}</h1>
+                    <span>{% trans "A quick guide through concepts you need to understand in order to argue properly." %}</span>
+                </a>
+            </div>
+            <a class="index-pane-credit" href="https://500px.com/giamboscaro">Giammarco Boscaro</a>
+        </div>
+        <div class="index-pane" style="background-image: url('{% static 'nietz/fallacies.jpg' %}')">
+            <div>
+                <a href="#" class="index-pane-title">
+                    <h1>{% trans "Know discourse fallacies" %}</h1>
+                    <span>{% trans "Looking good and being persuasive isn't enough, make your argument sound!" %}</span>
+                </a>
+            </div>
+            <a class="index-pane-credit" href="https://acreativemess.nl">Micheile Henderson</a>
+        </div>
+        <div class="index-pane" style="background-image: url('{% static 'nietz/biases.jpg' %}')">
+            <div>
+                <a href="#" class="index-pane-title">
+                    <h1>{% trans "Understand your biases" %}</h1>
+                    <span>{% trans "You're not only missing the point, you're losing your rationality!" %}</span>
+                </a>
+            </div>
+            <a class="index-pane-credit" href="https://unsplash.com/@budhelisson">Bud Helisson</a>
+        </div>
+    </nav>
 {% endblock %}

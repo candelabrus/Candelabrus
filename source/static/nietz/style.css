@@ -1,7 +1,46 @@
 #header-wrapper, #footer-wrapper {
-    background: #559bdf;
+    background: #bbdcdf;
 }
 
 #footer-wrapper a {
-    color: #FFF;
+    color: #999;
+}
+
+#index {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+.index-pane {
+    min-height: 300px;
+    background-size: cover;
+    background-position: center;
+    text-shadow: 0 0 10px #000;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.index-pane-title {
+    display: inline-block;
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+    background-color: rgba(157, 182, 197, 0.5);
+    border-bottom-right-radius: 10px;
+    border-right: 2px solid gray;
+    font-weight: bold;
+}
+
+.index-pane-credit {
+    text-align: right;
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
 }
