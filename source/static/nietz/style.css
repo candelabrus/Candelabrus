@@ -55,14 +55,14 @@
 }
 
 .fallacy {
-    box-shadow: 0 0 5px #777;
-    margin: 5px;
+    box-shadow: 0 0 2px #999;
+    margin-bottom: 10px;
     padding: 5px 10px;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
-    width: 45%;
-    background-color: #ebebeb;
+    width: calc(50% - 40px);
+    background-color: #f5f5f5;
 }
 
 .fallacy img {
