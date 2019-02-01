@@ -18,7 +18,12 @@ body {
 /* Caps the content width within the page sections*/
 .width-limiter {
     width: 1250px;
+    max-width: calc(100% - 30px);
     margin: auto;
+}
+
+#header-wrapper {
+    border-bottom: 2px solid gray;
 }
 
 /* --- HEADER --- */
@@ -28,18 +33,13 @@ body {
     flex-wrap: nowrap;
 }
 
-#header-nav {
-    height: 100%;
-    align-self: center;
-    font-weight: bold;
-}
 
 #logo-wrapper {
     padding: 5px;
 }
 
 #logo {
-    height: 80px;
+    height: 64px;
     padding: 5px 0;
     margin-right: 20px;
 }
@@ -53,9 +53,33 @@ body {
     font-size: 2.2em;
 }
 
+#header-nav {
+    height: 100%;
+    align-self: center;
+    font-weight: bold;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#header-nav a{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-left: 20px;
+}
+
 /* --- CENTER --- */
 #center-wrapper {
     flex-grow: 1;
+}
+
+
+/* Shade to the sides of the center width limiter*/
+#center-wrapper .width-limiter {
+    position: relative;
+    height: 100%;
 }
 
 /* --- FOOTER --- */
@@ -143,11 +167,6 @@ body {
     content: "";
     clear: both;
     display: table;
-}
-
-/* Shade to the sides of the center width limiter*/
-#center-wrapper .width-limiter {
-    position: relative;
 }
 
 #center-wrapper .width-limiter:before {

@@ -2,8 +2,8 @@
     background: #bbdcdf;
 }
 
-#footer-wrapper a {
-    color: #999;
+#header-nav a, #footer-wrapper a {
+    color: #555;
 }
 
 #index {

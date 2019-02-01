@@ -3,7 +3,7 @@
     background: #559bdf;
 }
 
-#footer-wrapper a {
+#header-nav a, #footer-wrapper a {
     color: #FFF;
 }
 
@@ -57,7 +57,7 @@
     margin-top: 20px;
 }
 
-.portal-pane:first-child .credit a {
+.portal-pane:first-child .index-pane-credit a {
     text-align: right;
 }
 
@@ -88,7 +88,7 @@
 }
 
 /* Format the credit layout div */
-.portal-inner-wrapper .credit {
+.portal-inner-wrapper .index-pane-credit {
     font-size: 10px;
     display: flex;
     flex-flow: column;
@@ -99,10 +99,10 @@
     flex-grow: 1;
 }
 
-.credit > a {
+.index-pane-credit > a {
     margin-bottom: 130px;
 }
 
-.portal-pane:last-of-type .credit > a {
+.portal-pane:last-of-type .index-pane-credit > a {
     margin-bottom: 0;
 }
