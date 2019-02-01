@@ -2,7 +2,7 @@ from django.db import models as djm
 from django.contrib.postgres import fields as pg
 from markdownx.models import MarkdownxField
 
-from location.languages import Language
+from location import models as location
 
 
 def fallacy_pic_path(fallacy, filename):
@@ -32,14 +32,14 @@ class Fallacy(djm.Model):
 
 class LocalizedFallacy(djm.Model):
     fallacy = djm.ForeignKey(Fallacy, on_delete=djm.PROTECT)
-    language = djm.IntegerField(choices=Language.CHOICES)
+    language = djm.ForeignKey(location.Language, on_delete=djm.PROTECT)
     name = djm.CharField(max_length=50)  # Fallacy name in this locale
     description = MarkdownxField()  # Description in this locale
     exceptions = MarkdownxField(null=True, blank=True)  # Exceptions in this locale
     sources = pg.ArrayField(djm.URLField(), null=True, blank=True)  # Array with external references to this fallacy
 
     def __str__(self):
-        return f'{self.fallacy.name} ({self.language})'
+        return f'{self.name} - {self.fallacy.name} ({self.language})'
 
     class Meta:
         verbose_name_plural = 'localized fallacies'
