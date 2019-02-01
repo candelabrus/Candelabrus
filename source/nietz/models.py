@@ -16,8 +16,8 @@ class Fallacy(djm.Model):
     parent = djm.ForeignKey('self', on_delete=djm.PROTECT, null=True, blank=True)
     # A cover image
     image = djm.ImageField(upload_to=fallacy_pic_path, null=True, blank=True)
-    related = djm.ManyToManyField('self')
-    categories = djm.ManyToManyField('FallacyCategory')
+    related = djm.ManyToManyField('self', blank=True)
+    categories = djm.ManyToManyField('FallacyCategory', blank=True)
 
     def __str__(self):
         if self.parent is None:
@@ -44,6 +44,7 @@ class LocalizedFallacy(djm.Model):
     class Meta:
         verbose_name_plural = 'localized fallacies'
         unique_together = [('fallacy', 'language'), ('name', 'language')]
+        ordering = ['name']
 
 
 class FallacyExample(djm.Model):

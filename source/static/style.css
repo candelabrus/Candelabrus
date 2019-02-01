@@ -169,6 +169,10 @@ body {
     display: table;
 }
 
+.formatter {
+    padding: 15px 10px;
+}
+
 #center-wrapper .width-limiter:before {
     box-shadow: -15px 0 15px -15px inset #777;
     content: " ";

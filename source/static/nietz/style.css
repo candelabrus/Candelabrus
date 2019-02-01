@@ -7,7 +7,6 @@
 }
 
 #index {
-    width: 100%;
     min-height: 100%;
     display: flex;
     flex-flow: column;
@@ -43,4 +42,42 @@
     font-size: 10px;
     margin-right: 5px;
     margin-bottom: 5px;
+}
+
+
+.fallacies {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.fallacy {
+    box-shadow: 0 0 5px #777;
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    width: 45%;
+    background-color: #ebebeb;
+}
+
+.fallacy img {
+    max-width: 64px;
+    max-height: 64px;
+}
+
+.fallacy > div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    border-left: 1px solid gray;
+    padding-left: 5px;
+}
+
+.fallacy .name {
+    font-weight: bold;
 }

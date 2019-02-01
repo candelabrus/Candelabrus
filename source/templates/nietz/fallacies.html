@@ -1,0 +1,42 @@
+{% extends 'nietz/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+    <div class="formatter">
+        <h2>{% trans "Estas são as falácias mas abrangentes, carrega nelas para aprenderes mais:" %}</h2>
+        <div class="fallacies">
+            {% for fallacy in fallacies %}
+                <div class="fallacy">
+                    {% if fallacy.fallacy.image %}
+                        <img src="{{ fallacy.fallacy.image.url }}"/>
+                    {% else %}
+                        <img src="{% static 'nietz/icon.svg' %}"/>
+                    {% endif %}
+                    <div>
+                        <a href="#" class="name">{{ fallacy.name.capitalize }}</a>
+                        <span class="description">{{ fallacy.description }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% if untranslated_fallacies.exists %}
+            <h2>{% trans "There are a few more, but they haven't been translated yet:" %}</h2>
+            <div class="fallacies">
+                {% for fallacy in untranslated_fallacies %}
+                    <div class="fallacy">
+                        {% if fallacy.fallacy.image %}
+                            <img src="{{ fallacy.fallacy.image.url }}"/>
+                        {% else %}
+                            <img src="{% static 'nietz/icon.svg' %}"/>
+                        {% endif %}
+                        <div>
+                            <a href="#" class="name">{{ fallacy.name.title }}</a>
+                            <span class="description">{{ fallacy.description }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
