@@ -1,9 +1,9 @@
 #header-wrapper, #footer-wrapper {
-    background: #bbdcdf;
+    background: #4696a6;
 }
 
-#header-nav a, #footer-wrapper a {
-    color: #555;
+#title-wrapper, #header-nav a, #footer-wrapper a {
+    color: #FFF;
 }
 
 #index {
@@ -45,24 +45,27 @@
 }
 
 
-.fallacies {
-    width: 100%;
+.fallacies, .fallacy-examples {
+    margin: 0 10px;
+    width: calc(100% - 20px);
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.fallacy, .fallacy-example {
+    box-shadow: 0 0 2px #999;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    background-color: #f5f5f5;
+    width: calc(50% - 40px);
 }
 
 .fallacy {
-    box-shadow: 0 0 2px #999;
-    margin-bottom: 10px;
     padding: 5px 10px;
-    border-radius: 5px;
-    display: flex;
     flex-direction: row;
-    width: calc(50% - 40px);
-    background-color: #f5f5f5;
 }
 
 .fallacy.child {
@@ -84,4 +87,32 @@
 
 .fallacy .name {
     font-weight: bold;
+}
+
+.fallacy-cover {
+    background-color: #f0f0f0;
+}
+
+.fallacy-cover img {
+    float: left;
+    height: 128px;
+    margin-right: 20px;
+}
+
+.fallacy-cover h1 {
+    margin-top: 0;
+}
+
+.fallacy-example {
+    flex-direction: column;
+}
+
+
+.fallacy-example-text {
+    padding: 10px;
+}
+
+.fallacy-example-explanation {
+    background-color: rgba(0, 0, 0, 0.10);
+    padding: 10px;
 }

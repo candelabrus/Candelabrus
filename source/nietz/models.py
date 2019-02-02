@@ -1,6 +1,7 @@
 from django.db import models as djm
 from django.contrib.postgres import fields as pg
 from markdownx.models import MarkdownxField
+from markdownx.utils import markdownify
 
 from location import models as location
 
@@ -34,12 +35,16 @@ class LocalizedFallacy(djm.Model):
     fallacy = djm.ForeignKey(Fallacy, on_delete=djm.PROTECT)
     language = djm.ForeignKey(location.Language, on_delete=djm.PROTECT)
     name = djm.CharField(max_length=50)  # Fallacy name in this locale
-    description = MarkdownxField()  # Description in this locale
-    exceptions = MarkdownxField(null=True, blank=True)  # Exceptions in this locale
+    description = djm.CharField(max_length=200)  # A short description in this locale
+    explanation = MarkdownxField()  # The full description in this locale
     sources = pg.ArrayField(djm.URLField(), null=True, blank=True)  # Array with external references to this fallacy
 
     def __str__(self):
         return f'{self.name} - {self.fallacy.name} ({self.language})'
+
+    @property
+    def explanation_html(self):
+        return markdownify(self.explanation)
 
     class Meta:
         verbose_name_plural = 'localized fallacies'
@@ -51,6 +56,14 @@ class FallacyExample(djm.Model):
     parent = djm.ForeignKey(LocalizedFallacy, on_delete=djm.PROTECT, related_name="examples")
     content = MarkdownxField()
     explanation = MarkdownxField()
+
+    @property
+    def content_html(self):
+        return markdownify(self.content)
+
+    @property
+    def explanation_html(self):
+        return markdownify(self.explanation)
 
     class Meta:
         unique_together = ['parent', 'content']
