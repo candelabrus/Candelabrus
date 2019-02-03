@@ -8,11 +8,11 @@
 {% endblock %}
 
 {% block header %}
-    <img id="logo" src="{% static "darwin/icon.svg" %}">
-    <div id="title-wrapper">
-        <span id="title">Darwin</span><br>
-        {% trans "Society evolved" %}
-    </div>
+    <a id="title-wrapper" href="{% url 'darwin:index' %}">
+        <img id="logo" src="{% static "darwin/icon.svg" %}">
+        <span id="title">Darwin</span>
+        <span id="subtitle">{% trans "Society evolved" %}</span>
+    </a>
     <nav id="header-nav">
     </nav>
 {% endblock %}

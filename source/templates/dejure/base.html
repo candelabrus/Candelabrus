@@ -8,11 +8,11 @@
 {% endblock %}
 
 {% block header %}
-    <img id="logo" src="{% static "dejure/icon.svg" %}">
-    <div id="title-wrapper">
-        <span id="title">DeJure</span><br>
-        {% trans "Law understood" %}
-    </div>
+    <a id="title-wrapper" href="{% url 'dejure:index' %}">
+        <img id="logo" src="{% static "dejure/icon.svg" %}">
+        <span id="title">DeJure</span>
+        <span id="subtitle">{% trans "Law understood" %}</span>
+    </a>
     <nav id="header-nav">
     </nav>
 {% endblock %}

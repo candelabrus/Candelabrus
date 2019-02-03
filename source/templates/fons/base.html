@@ -8,11 +8,11 @@
 {% endblock %}
 
 {% block header %}
-    <img id="logo" src="{% static "fons/icon.svg" %}">
-    <div id="title-wrapper">
-        <span id="title">Fons</span><br>
-        {% trans "Know the truth" %}
-    </div>
+    <a id="title-wrapper" href="{% url 'fons:index' %}">
+        <img id="logo" src="{% static "fons/icon.svg" %}">
+        <span id="title">Fons</span>
+        <span id="subtitle">{% trans "Know the truth" %}</span>
+    </a>
     <nav id="header-nav">
     </nav>
 {% endblock %}

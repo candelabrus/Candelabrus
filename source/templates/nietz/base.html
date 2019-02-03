@@ -8,14 +8,14 @@
 {% endblock %}
 
 {% block header %}
-    <img id="logo" src="{% static "nietz/icon.svg" %}">
-    <div id="title-wrapper">
-        <span id="title">Nietz</span><br>
-        {% trans "Learn arguing" %}
-    </div>
+    <a id="title-wrapper" href="{% url 'nietz:index' %}">
+        <img id="logo" src="{% static "nietz/icon.svg" %}">
+        <span id="title">Nietz</span>
+        <span id="subtitle">{% trans "Learn arguing" %}</span>
+    </a>
     <nav id="header-nav">
-            <a href="#">{% trans "Concepts" %}</a>
-            <a href="{% url 'nietz:fallacies' %}">{% trans "Fallacies" %}</a>
-            <a href="#">{% trans "Biases" %}</a>
+        <a href="#">{% trans "Concepts" %}</a>
+        <a href="{% url 'nietz:fallacies' %}">{% trans "Fallacies" %}</a>
+        <a href="#">{% trans "Biases" %}</a>
     </nav>
 {% endblock %}

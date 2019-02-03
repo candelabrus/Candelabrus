@@ -1,7 +1,15 @@
 #header-wrapper, #footer-wrapper {
-    background: #559bdf;
+    background: #5ea646;
 }
 
-#footer-wrapper a {
-    color: #FFF;
+#title-wrapper, #header-nav a, #footer-wrapper a {
+    color: #aed998;
+}
+
+#title {
+    font-size: 3.8em;
+}
+
+#subtitle{
+    font-size: 1.2em;
 }

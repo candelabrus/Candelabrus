@@ -8,13 +8,16 @@
 {% endblock %}
 
 {% block header %}
-    <img id="logo" src="{% static "candelabrus/icon.svg" %}">
-    <div id="title-wrapper">
-        <span id="title">Candelabrus</span><br>
-        {% trans "Support for enlightenment" %}
-    </div>
+    <a id="title-wrapper" href="{% url 'index' %}">
+        <img id="logo" src="{% static "candelabrus/icon.svg" %}">
+        <div style="display: flex; flex-direction: column">
+            <span id="title">Candelabrus</span>
+            <span id="subtitle">{% trans "Support for enlightenment" %}</span>
+        </div>
+    </a>
     <nav id="header-nav">
-        <a href="#">Blog</a>
-        <a href="#">{% trans "Contribute" %}</a>
+        <a href="#">{% trans "Concepts" %}</a>
+        <a href="{% url 'nietz:fallacies' %}">{% trans "Fallacies" %}</a>
+        <a href="#">{% trans "Biases" %}</a>
     </nav>
 {% endblock %}

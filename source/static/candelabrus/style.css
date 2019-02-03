@@ -1,12 +1,21 @@
 /* --- Cosmetic --- */
 #header-wrapper, #footer-wrapper {
-    background: #559bdf;
+    background: #bfa05a;
 }
 
-#header-nav a, #footer-wrapper a {
+#title-wrapper, #header-nav a, #footer-wrapper a {
     color: #FFF;
 }
 
+#title {
+    font-size: 3.2em;
+}
+
+#subtitle{
+    font-size: 1em;
+    margin-top: -7px;
+    margin-left: 5px;
+}
 
 /* --- Home page portals --- */
 .portal-pane {

@@ -8,11 +8,13 @@
 {% endblock %}
 
 {% block header %}
-    <img id="logo" src="{% static "mereokratos/icon.svg" %}">
-    <div id="title-wrapper">
-        <span id="title">Mereokratos</span><br>
-        {% trans "Better representation" %}
-    </div>
+    <a id="title-wrapper" href="{% url 'mereokratos:index' %}">
+        <img id="logo" src="{% static "mereokratos/icon.svg" %}">
+        <div style="display: flex; flex-direction: column">
+            <span id="title">Mereokratos</span>
+            <span id="subtitle">{% trans "Better representation" %}</span>
+        </div>
+    </a>
     <nav id="header-nav">
     </nav>
 {% endblock %}

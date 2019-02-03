@@ -27,6 +27,11 @@ h3{
     margin: 10px 0;
 }
 
+a , a:active {
+    text-decoration: none;
+    color: #2d9adf;
+}
+
 /* Caps the content width within the page sections*/
 .width-limiter {
     width: 1250px;
@@ -54,15 +59,7 @@ h3{
     height: 64px;
     padding: 5px 0;
     margin-right: 20px;
-}
-
-#title-wrapper {
-    font-size: 1.2em;
-    margin-right: 50px;
-}
-
-#title {
-    font-size: 2.2em;
+    float: left;
 }
 
 #header-nav {
