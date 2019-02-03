@@ -6,8 +6,8 @@ from markdownx.utils import markdownify
 from location import models as location
 
 
-def fallacy_pic_path(fallacy, filename):
-    return f'nz/i/{fallacy.name.replace(" ", "_")}.{filename.split(".")[-1]}'
+def fallacy_img_path(fallacy, filename):
+    return f'nz/f/i/{fallacy.name.replace(" ", "_")}.{filename.split(".")[-1]}'
 
 
 class Fallacy(djm.Model):
@@ -16,7 +16,7 @@ class Fallacy(djm.Model):
     # Fallacy variants point to their generalizations
     parent = djm.ForeignKey('self', on_delete=djm.PROTECT, null=True, blank=True)
     # A cover image
-    image = djm.ImageField(upload_to=fallacy_pic_path, null=True, blank=True)
+    image = djm.ImageField(upload_to=fallacy_img_path, null=True, blank=True)
     related = djm.ManyToManyField('self', blank=True)
     categories = djm.ManyToManyField('FallacyCategory', blank=True)
 
@@ -69,6 +69,14 @@ class FallacyExample(djm.Model):
         unique_together = ['parent', 'content']
 
 
+def fallacy_category_img_path(fallacy_category, filename):
+    return f'nz/fc/{fallacy_category.name.replace(" ", "_")}.{filename.split(".")[-1]}'
+
+
 class FallacyCategory(djm.Model):
     name = djm.CharField(max_length=20)
     color = djm.CharField(max_length=6)
+    icon = djm.ImageField(upload_to=fallacy_category_img_path, null=True)
+
+    class Meta:
+        verbose_name_plural = 'fallacy categories'
