@@ -10,7 +10,7 @@
     font-size: 3.8em;
 }
 
-#subtitle{
+#subtitle {
     font-size: 1.2em;
 }
 
@@ -52,7 +52,74 @@
     margin-bottom: 5px;
 }
 
+/* --- Concepts page --- */
+.concept-tab {
+    position: relative;
+    margin-bottom: 1px;
+    width: 100%;
+    overflow: hidden;
+}
 
+.concept-tab input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+.concept-tab label {
+    position: relative;
+    display: block;
+    padding: 0 0 0 1em;
+    background: #54afbf;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    line-height: 2;
+    cursor: pointer;
+}
+
+.concept-tab-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.concept-tab input:checked ~ .concept-tab-content {
+    max-height: 100vh;
+}
+
+.concept-tab label::after {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 3em;
+    height: 2em;
+    line-height: 2;
+    text-align: center;
+    transition: all .35s;
+}
+
+.concept-tab input[type=checkbox] + label::after {
+    content: "\25BC";
+}
+
+.concept-tab input[type=checkbox]:checked + label::after {
+    transform: rotateX(180deg);
+}
+
+.concept-tab-content blockquote {
+    width: max-content;
+    background-color: #EEE;
+    padding: 2px 10px;
+    border-radius: 7px;
+}
+
+.concept-tab-content p {
+    width: max-content;
+}
+
+/* --- Fallacy pages --- */
 .fallacies, .fallacy-examples {
     margin: 0 10px;
     width: calc(100% - 20px);
@@ -123,4 +190,10 @@
 .fallacy-example-explanation {
     background-color: rgba(0, 0, 0, 0.10);
     padding: 10px;
+}
+
+.fallacy-category {
+    border-radius: 5px;
+    padding: 5px;
+    border: 2px solid #999;
 }

@@ -10,6 +10,26 @@ def fallacy_img_path(fallacy, filename):
     return f'nz/f/i/{fallacy.name.replace(" ", "_")}.{filename.split(".")[-1]}'
 
 
+class GuideSection(djm.Model):
+    language = djm.ForeignKey(location.Language, on_delete=djm.PROTECT)
+    name = djm.CharField(max_length=100)
+    index = djm.IntegerField()
+    content = MarkdownxField()
+    # Always points to the english guide section this has been translated from
+    parent = djm.ForeignKey('self', on_delete=djm.SET_NULL, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    @property
+    def content_html(self):
+        return markdownify(self.content)
+
+    class Meta:
+        unique_together = [['language', 'index'], ['language', 'name']]
+        ordering = ['index']
+
+
 class Fallacy(djm.Model):
     # Language agnostic identifier (usually latin or english)
     name = djm.CharField(max_length=50, unique=True)
@@ -76,7 +96,10 @@ def fallacy_category_img_path(fallacy_category, filename):
 class FallacyCategory(djm.Model):
     name = djm.CharField(max_length=20)
     color = djm.CharField(max_length=6)
-    icon = djm.ImageField(upload_to=fallacy_category_img_path, null=True)
+    icon = djm.ImageField(upload_to=fallacy_category_img_path, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name_plural = 'fallacy categories'

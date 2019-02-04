@@ -6,7 +6,7 @@
     <nav id="index">
         <div class="index-pane" style="background-image: url('{% static 'nietz/basic-concepts.jpg' %}')">
             <div>
-                <a href="#" class="index-pane-title">
+                <a href="{% url 'nietz:concepts' %}" class="index-pane-title">
                     <h1>{% trans "Understand basic concepts" %}</h1>
                     <span>{% trans "A quick guide through concepts you need to understand in order to argue properly." %}</span>
                 </a>
@@ -15,7 +15,7 @@
         </div>
         <div class="index-pane" style="background-image: url('{% static 'nietz/fallacies.jpg' %}')">
             <div>
-                <a href="#" class="index-pane-title">
+                <a href="{% url 'nietz:fallacies' %}" class="index-pane-title">
                     <h1>{% trans "Know discourse fallacies" %}</h1>
                     <span>{% trans "Looking good and being persuasive isn't enough, make your argument sound!" %}</span>
                 </a>

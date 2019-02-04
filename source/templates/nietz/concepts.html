@@ -1,0 +1,21 @@
+{% extends 'nietz/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+    <div class="formatter">
+        <h1>{% trans "Basic argumentation concepts" %}</h1>
+        {% trans "This is a simple guide on some principles you need to know in order to know how to argue." %}<br>
+        {% trans "It's contents contents are divided on fairly independent topics." %}<br>
+        {% trans "Consider these topics very very simplified. If you want to study them more extensively, consider a good philosophy book." %}
+    </div>
+    {% for section in guide %}
+        <div class="concept-tab">
+            <input id="{{ section.name|cut:" " }}" type="checkbox" name="tabs">
+            <label for="{{ section.name|cut:" " }}">{{ section.name }}</label>
+            <div class="concept-tab-content">
+                <div class="formatter">{{ section.content_html|safe }}</div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

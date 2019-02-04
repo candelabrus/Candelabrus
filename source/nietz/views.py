@@ -8,6 +8,12 @@ def index(request):
     return render(request, 'nietz/index.html', None)
 
 
+def concepts(request):
+    guide = m.GuideSection.objects.filter(language__alpha2=t.get_language()).all()
+    context = {'guide': guide}
+    return render(request, 'nietz/concepts.html', context)
+
+
 def fallacies(request):
     localized_fallacies = m.LocalizedFallacy.objects.filter(language__alpha2=t.get_language())
     untranslated_fallacies = m.LocalizedFallacy.objects \
