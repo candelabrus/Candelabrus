@@ -1,0 +1,21 @@
+{
+  "SECRET_KEY": "changeme",
+  "DATABASES": {
+    "default": {
+      "ENGINE": "django.contrib.gis.db.backends.postgis",
+      "NAME": "candelabrus",
+      "USER": "changeme",
+      "PASSWORD": "changeme",
+      "HOST": "postgres",
+      "PORT": "5432"
+    }
+  },
+  "ALLOWED_HOSTS": [
+    "candelabrum.org",
+    "candelabrum",
+    "127.0.0.1"
+  ],
+  "STATIC_ROOT" : "/candelabrus/http/static/",
+  "MEDIA_ROOT" : "/candelabrus/http/media/",
+  "DEBUG": true
+}

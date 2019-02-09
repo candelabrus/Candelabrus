@@ -1,0 +1,10 @@
+Django
+Pillow
+beautifulsoup4
+django-autocomplete-light
+django-extensions
+uWSGI
+psycopg2-binary
+django-leaflet
+django-markdownx
+pyrlamento
