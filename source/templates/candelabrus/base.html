@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block head %}
-    <link rel="shortcut icon" href="{% static "candelabrus/favicon.png" %}"/>
+    <link rel="shortcut icon" href="{% static "candelabrus/icon.png" %}"/>
     <link rel="stylesheet" href="{% static 'candelabrus/style.css' %}">
 {% endblock %}
 
@@ -16,8 +16,7 @@
         </div>
     </a>
     <nav id="header-nav">
-        <a href="#">{% trans "Concepts" %}</a>
-        <a href="{% url 'nietz:fallacies' %}">{% trans "Fallacies" %}</a>
-        <a href="#">{% trans "Biases" %}</a>
+        <a href="#">Blog</a>
+        <a href="#">Contribute</a>
     </nav>
 {% endblock %}
