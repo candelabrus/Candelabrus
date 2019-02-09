@@ -96,3 +96,15 @@ STATICFILES_DIRS = [
 
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
+
+try:
+    DEBUG
+except NameError:
+    DEBUG = False
+
+if DEBUG:
+    CSRF_COOKIE_SECURE = False
+    SESSION_COOKIE_SECURE = False
+else:
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
