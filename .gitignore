@@ -1,0 +1,9 @@
+.gitignore
+venv
+__pycache__
+migrations
+config/settings.json
+*.mo
+*.png
+*.jpg
+*.svg
