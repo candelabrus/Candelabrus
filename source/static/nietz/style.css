@@ -178,6 +178,12 @@
     margin-top: 0;
 }
 
+.fallacy-cover-title-categories {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .fallacy-example {
     flex-direction: column;
 }

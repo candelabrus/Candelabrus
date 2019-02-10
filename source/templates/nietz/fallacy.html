@@ -9,8 +9,21 @@
         {% else %}
             <img src="{% static 'nietz/icon.svg' %}">
         {% endif %}
-        <h1>{{ fallacy.name.capitalize }}</h1>
-        <h2>{{ fallacy.fallacy.name.capitalize }}</h2>
+        <div class="fallacy-cover-title-categories">
+            <div>
+                <h1>{{ fallacy.name.capitalize }}</h1>
+                <h2>{{ fallacy.fallacy.name.capitalize }}</h2>
+            </div>
+            <div>
+                {% for category in fallacy.fallacy.categories.all %}
+                    {# TODO Translate categories #}
+                    <span class="fallacy-category" style="background-color: \#{{ category.color }}"
+                          data-balloon="{{ category.name }}" data-balloon-pos="down">
+                        {{ category.name }}
+                    </span>
+                {% endfor %}
+            </div>
+        </div>
         <p>{{ fallacy.description }}</p>
     </div>
     <div class="formatter">
