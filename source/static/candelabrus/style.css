@@ -1,17 +1,18 @@
 /* --- Cosmetic --- */
 #header-wrapper, #footer-wrapper {
-    background: #bfa05a;
+    background: black;
+    border: 0 !important;
 }
 
 #title-wrapper, #header-nav a, #footer-wrapper a {
-    color: #FFF;
+    color: white;
 }
 
 #title {
     font-size: 3.2em;
 }
 
-#subtitle{
+#subtitle {
     font-size: 1em;
     margin-top: -7px;
     margin-left: 5px;
