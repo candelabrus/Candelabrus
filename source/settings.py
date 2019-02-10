@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'django_extensions',
     'markdownx',
+    'users',
     'location',
     'candelabrus',
     'nietz',
@@ -60,6 +61,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'wsgi.application'
+
+AUTH_USER_MODEL = 'users.User'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
