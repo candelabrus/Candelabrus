@@ -26,7 +26,6 @@ WORKDIR /candelabrus
 EXPOSE 1993
 
 ENV CANDELABRUS_CONFIG /candelabrus/config/settings.json
-ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Execute uwsgi daemon once this container runs

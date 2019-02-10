@@ -7,3 +7,4 @@ LICENSE
 .git
 .gitignore
 .idea
+__pycache__
