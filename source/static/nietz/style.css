@@ -85,7 +85,7 @@
 }
 
 .concept-tab input:checked ~ .concept-tab-content {
-    max-height: 100vh;
+    max-height: 9999px;
 }
 
 .concept-tab label::after {
