@@ -5,9 +5,11 @@
 {% block content %}
     <div class="formatter">
         <h1>{% trans "Basic argumentation concepts" %}</h1>
-        {% trans "This is a simple guide on some principles you need to know in order to know how to argue." %}<br>
-        {% trans "It's contents contents are divided on fairly independent topics." %}<br>
-        {% trans "Consider these topics very very simplified. If you want to study them more extensively, consider a good philosophy book." %}
+        {% blocktrans  trimmed %}
+            This is a quick guide on some principles you need to know in order to know how to argue.<br>
+            Consider these topics very very simplified.
+            If you want to study them more extensively, consider a good philosophy book.
+        {% endblocktrans %}
     </div>
     {% for section in guide %}
         <div class="concept-tab">

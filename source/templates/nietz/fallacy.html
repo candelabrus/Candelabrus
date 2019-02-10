@@ -26,7 +26,7 @@
                 {% endfor %}
             </div>
         {% else %}
-            {% trans "No translated examples of this fallacy." %} <a href="#">{% trans "Contribute some!" %}</a>
+            {% trans "No translated examples." %} <a href="#">{% trans "Contribute some!" %}</a>
         {% endif %}
         {% if children.exists or untranslated_children.exists %}
             <h3>{% trans "Cases of this fallacy" %}:</h3>

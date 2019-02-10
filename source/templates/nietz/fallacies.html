@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="formatter">
-        <h2>{% trans "These are the most generic fallacies. Click them to learn more:" %}</h2>
+            <h2>{% trans "These are the most generic fallacies. Click them to learn more:" %}</h2>
         <div class="fallacies">
             {% for fallacy in fallacies %}
                 <div class="fallacy{% if fallacy.fallacy.parent is not None %} child{% endif %}">
