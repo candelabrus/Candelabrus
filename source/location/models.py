@@ -1,5 +1,6 @@
 from django.db import models as djm
 from django.contrib.gis.db import models as gis
+from django.utils.translation import gettext_lazy as _
 
 
 class Language(djm.Model):
@@ -15,15 +16,21 @@ class Language(djm.Model):
 
 class DivisionType:
     COUNTRY = 0
-    DISTRICT = 1
-    MUNICIPALITY = 2
-    PARISH = 3
+    REGION = 1
+    AUTONOMOUS_REGION = 2
+    DISTRICT = 3
+    MUNICIPALITY = 4
+    PARISH = 5
+    ISLAND = 6
 
     CHOICES = (
-        (COUNTRY, 'Country'),
-        (DISTRICT, 'District'),
-        (MUNICIPALITY, 'Municipality'),
-        (PARISH, 'Parish'),
+        (COUNTRY, _('country')),
+        (REGION, _('region')),
+        (AUTONOMOUS_REGION, _('autonomous region')),
+        (DISTRICT, _('district')),
+        (MUNICIPALITY, _('municipality')),
+        (PARISH, _('parish')),
+        (ISLAND, _('island')),
     )
 
 

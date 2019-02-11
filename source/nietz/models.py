@@ -1,6 +1,7 @@
 from django.db import models as djm
 from django.contrib.postgres import fields as pg
 from markdownx.models import MarkdownxField
+from colorful.fields import RGBColorField
 from markdownx.utils import markdownify
 
 from location import models as location
@@ -95,7 +96,7 @@ def fallacy_category_img_path(fallacy_category, filename):
 
 class FallacyCategory(djm.Model):
     name = djm.CharField(max_length=20)
-    color = djm.CharField(max_length=6)
+    color = RGBColorField()
     icon = djm.ImageField(upload_to=fallacy_category_img_path, null=True, blank=True)
 
     def __str__(self):

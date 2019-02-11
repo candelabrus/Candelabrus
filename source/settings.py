@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'django_extensions',
     'markdownx',
+    'colorful',
     'users',
     'location',
     'candelabrus',

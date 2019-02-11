@@ -17,7 +17,7 @@
             <div>
                 {% for category in fallacy.fallacy.categories.all %}
                     {# TODO Translate categories #}
-                    <span class="fallacy-category" style="background-color: \#{{ category.color }}"
+                    <span class="fallacy-category" style="background-color: {{ category.color }}"
                           data-balloon="{{ category.name }}" data-balloon-pos="down">
                         {{ category.name }}
                     </span>

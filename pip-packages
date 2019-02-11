@@ -1,10 +1,10 @@
 Django
 Pillow
-beautifulsoup4
-django-autocomplete-light
-django-extensions
 uWSGI
 psycopg2-binary
+django-autocomplete-light
+django-colorful
+django-extensions
 django-leaflet
 django-markdownx
 pyrlamento
