@@ -1,3 +1,4 @@
+from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.urls import path, include
 from candelabrus import views
@@ -8,12 +9,15 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('markdownx/', include('markdownx.urls')),
     path('admin/', admin.site.urls),
+]
+
+urlpatterns += i18n_patterns(
     path('fo/', include('fons.urls')),
     path('dj/', include('dejure.urls')),
     path('dw/', include('darwin.urls')),
     path('nz/', include('nietz.urls')),
     path('mk/', include('mereokratos.urls')),
-]
+)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
