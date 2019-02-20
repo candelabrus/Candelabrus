@@ -21,9 +21,17 @@ class SourceProvider(djm.Model):
         on_delete=djm.SET_NULL,
         null=True, blank=True,
         verbose_name=_('country'))
-    owners = djm.ManyToManyField('self', symmetrical=False, related_name='children', verbose_name=_('owners'))
+    parent = djm.ManyToManyField(
+        'self',
+        symmetrical=False,
+        related_name='children',
+        verbose_name=_('parents'),
+        blank=True)
     homepage = djm.URLField(null=True, blank=True, verbose_name=_('homepage'))
     governmental = djm.BooleanField(null=True, blank=True, verbose_name=_('governmental'))
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name = _('source provider')
@@ -39,6 +47,9 @@ class Source(djm.Model):
     description = djm.TextField(verbose_name=_('description'))  # In the source language
     url = djm.URLField(null=True, blank=True, verbose_name=_('address'))  # When has an online resource
     provider = djm.ForeignKey(SourceProvider, on_delete=djm.PROTECT, verbose_name=_('provider'))
+
+    def __str__(self):
+        return self.title
 
     class Meta:
         verbose_name = _('source')
@@ -121,6 +132,9 @@ class SourceFlaw(djm.Model):
     justification = djm.TextField(verbose_name=_('justification'))
     verified = djm.BooleanField(default=False, verbose_name=_('verified'))
 
+    def __str__(self):
+        return self.flaw
+
     class Meta:
         verbose_name = _('source flaw')
         verbose_name_plural = _('source flaws')
@@ -131,12 +145,15 @@ class Citation(djm.Model):
     content = djm.TextField(verbose_name=_('content'))  # The content which is relevant in this source
     author = djm.CharField(max_length=128, verbose_name=_('author'))
 
+    def __str__(self):
+        return f"Citation of {self.source}"
+
     class Meta:
         verbose_name = _('citation')
         verbose_name_plural = _('citations')
 
 
-class Area(mptt.MPTTModel):
+class Subject(mptt.MPTTModel):
     name = djm.CharField(max_length=32, verbose_name=_('name'))  # Default english name
     parent = mptt.TreeForeignKey('self', on_delete=djm.CASCADE, null=True, blank=True, related_name='children')
 
@@ -144,18 +161,18 @@ class Area(mptt.MPTTModel):
         return self.name
 
     class Meta:
-        verbose_name = _('area')
-        verbose_name_plural = _('areas')
+        verbose_name = _('subject')
+        verbose_name_plural = _('subjects')
         unique_together = (('name', 'parent'),)
 
 
-class LocalizedArea(djm.Model):
-    area = djm.ForeignKey(Area, on_delete=djm.CASCADE, verbose_name=_('area'), related_name='localizations')
+class LocalizedSubject(djm.Model):
+    subject = djm.ForeignKey(Subject, on_delete=djm.CASCADE, verbose_name=_('subject'), related_name='localizations')
     language = djm.ForeignKey(
         location.Language,
         on_delete=djm.PROTECT,
         verbose_name=_('language'),
-        related_name='localized_areas')
+        related_name='localized_subjects')
     name = djm.CharField(max_length=32, verbose_name=_('name'))
     description = djm.TextField(verbose_name=_('description'))
 
@@ -163,9 +180,9 @@ class LocalizedArea(djm.Model):
         return self.name
 
     class Meta:
-        verbose_name = _('area translation')
-        verbose_name_plural = _('area translations')
-        unique_together = (('area', 'language'),)
+        verbose_name = _('subject translation')
+        verbose_name_plural = _('subject translations')
+        unique_together = (('subject', 'language'),)
 
 
 class Event(djm.Model):
@@ -179,32 +196,41 @@ class Event(djm.Model):
         related_name='events',
         verbose_name=_('territorial divisions'))
     location = gis.PointField(geography=True, null=True, blank=True, verbose_name=_('location'))
-    areas = djm.ManyToManyField(
-        Area,
-        through='EventAreas',
+    subjects = djm.ManyToManyField(
+        Subject,
+        through='EventSubjects',
         related_name='events',
-        verbose_name=_('areas'))
+        verbose_name=_('events'))
+
+    def __str__(self):
+        return f"Event from {self.start} to {self.end}"
 
     class Meta:
         verbose_name = _('event')
         verbose_name_plural = _('events')
 
 
-class EventAreas(djm.Model):
+class EventSubjects(djm.Model):
     event = djm.ForeignKey(Event, on_delete=djm.CASCADE, verbose_name=_('event'))
-    area = djm.ForeignKey(Area, on_delete=djm.PROTECT, verbose_name=_('area'))
+    subject = djm.ForeignKey(Subject, on_delete=djm.PROTECT, verbose_name=_('subject'))
     generalization = djm.IntegerField(default=0, verbose_name=_('generalization'))
 
+    def __str__(self):
+        return f"{self.event} to {self.subject}"
+
     class Meta:
-        verbose_name = _('event area')
-        verbose_name_plural = _('event areas')
-        unique_together = (('event', 'area'),)
+        verbose_name = _('event subject')
+        verbose_name_plural = _('event subjects')
+        unique_together = (('event', 'subject'),)
 
 
 class EventDivisions(djm.Model):
     event = djm.ForeignKey(Event, on_delete=djm.CASCADE, verbose_name=_('event'))
     division = djm.ForeignKey(location.Division, on_delete=djm.PROTECT, verbose_name=_('territorial division'))
     generalization = djm.IntegerField(default=0, verbose_name=_('generalization'))
+
+    def __str__(self):
+        return f"{self.event} to {self.division}"
 
     class Meta:
         verbose_name = _('event division')
@@ -218,7 +244,10 @@ class LocalizedEvent(djm.Model):
     title = djm.CharField(max_length=256, verbose_name=_('title'))
     description = djm.TextField(verbose_name=_('description'))
 
+    def __str__(self):
+        return f"{self.title} ({self.language})"
+
     class Meta:
-        verbose_name = _('localized event')
-        verbose_name_plural = _('localized events')
+        verbose_name = _('event translation')
+        verbose_name_plural = _('event translations')
         unique_together = (('event', 'language'),)
