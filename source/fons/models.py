@@ -2,6 +2,7 @@ from django.contrib.gis.db import models as gis
 from django.core.exceptions import ValidationError
 from django.db import models as djm
 from django.utils.translation import gettext_lazy as _
+from django.utils import translation as t
 from mptt import models as mptt
 
 from location import models as location
@@ -157,6 +158,14 @@ class Subject(mptt.MPTTModel):
     name = djm.CharField(max_length=32, verbose_name=_('name'))  # Default english name
     parent = mptt.TreeForeignKey('self', on_delete=djm.CASCADE, null=True, blank=True, related_name='children')
 
+    @property
+    def localized(self):
+        return self.localizations.filter(language__alpha2=t.get_language()).first()
+
+    @property
+    def languages(self):
+        return location.Language.objects.filter(localizedsubject__subject=self)
+
     def __str__(self):
         return self.name
 
@@ -171,8 +180,7 @@ class LocalizedSubject(djm.Model):
     language = djm.ForeignKey(
         location.Language,
         on_delete=djm.PROTECT,
-        verbose_name=_('language'),
-        related_name='localized_subjects')
+        verbose_name=_('language'))
     name = djm.CharField(max_length=32, verbose_name=_('name'))
     description = djm.TextField(verbose_name=_('description'))
 
@@ -188,22 +196,32 @@ class LocalizedSubject(djm.Model):
 class Event(djm.Model):
     start = djm.DateTimeField(verbose_name=_('initial time'))
     end = djm.DateTimeField(null=True, blank=True, verbose_name=_('final time'))
-    children = djm.ManyToManyField('self', symmetrical=False, verbose_name=_('children'))
-    source_citations = djm.ManyToManyField(Citation, verbose_name=_('source citations'))
+    children = djm.ManyToManyField('self', symmetrical=False, blank=True, verbose_name=_('children'))
+    source_citations = djm.ManyToManyField(Citation, blank=True, verbose_name=_('source citations'))
     divisions = djm.ManyToManyField(
         location.Division,
         through='EventDivisions',
         related_name='events',
-        verbose_name=_('territorial divisions'))
+        verbose_name=_('territorial divisions'),
+        blank=True)
     location = gis.PointField(geography=True, null=True, blank=True, verbose_name=_('location'))
     subjects = djm.ManyToManyField(
         Subject,
         through='EventSubjects',
         related_name='events',
-        verbose_name=_('events'))
+        verbose_name=_('events'),
+        blank=True)
 
     def __str__(self):
         return f"Event from {self.start} to {self.end}"
+
+    @property
+    def localized(self):
+        return self.localizations.filter(language__alpha2=t.get_language()).first()
+
+    @property
+    def languages(self):
+        return location.Language.objects.filter(localizedevent__event=self)
 
     class Meta:
         verbose_name = _('event')
@@ -239,7 +257,7 @@ class EventDivisions(djm.Model):
 
 
 class LocalizedEvent(djm.Model):
-    event = djm.ForeignKey(Event, on_delete=djm.CASCADE, verbose_name=_('event'))
+    event = djm.ForeignKey(Event, on_delete=djm.CASCADE, related_name='localizations', verbose_name=_('event'))
     language = djm.ForeignKey(location.Language, on_delete=djm.CASCADE, verbose_name=_('language'))
     title = djm.CharField(max_length=256, verbose_name=_('title'))
     description = djm.TextField(verbose_name=_('description'))
