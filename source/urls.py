@@ -12,11 +12,11 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
-    path('fo/', include('fons.urls')),
-    path('dj/', include('dejure.urls')),
-    path('dw/', include('darwin.urls')),
-    path('nz/', include('nietz.urls')),
-    path('mk/', include('mereokratos.urls')),
+    path('fons/', include('fons.urls')),
+    path('dejure/', include('dejure.urls')),
+    path('darwin/', include('darwin.urls')),
+    path('nietz/', include('nietz.urls')),
+    path('mereokratos/', include('mereokratos.urls')),
 )
 
 if settings.DEBUG:
