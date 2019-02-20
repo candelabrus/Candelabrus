@@ -194,10 +194,10 @@ class LocalizedSubject(djm.Model):
 
 
 class Event(djm.Model):
-    start = djm.DateTimeField(verbose_name=_('initial time'))
-    end = djm.DateTimeField(null=True, blank=True, verbose_name=_('final time'))
+    start = djm.DateTimeField(verbose_name=_('start'))
+    end = djm.DateTimeField(null=True, blank=True, verbose_name=_('end'))
     children = djm.ManyToManyField('self', symmetrical=False, blank=True, verbose_name=_('children'))
-    source_citations = djm.ManyToManyField(Citation, blank=True, verbose_name=_('source citations'))
+    source_citations = djm.ManyToManyField(Citation, blank=True, verbose_name=_('citations'))
     divisions = djm.ManyToManyField(
         location.Division,
         through='EventDivisions',
@@ -251,8 +251,8 @@ class EventDivisions(djm.Model):
         return f"{self.event} to {self.division}"
 
     class Meta:
-        verbose_name = _('event division')
-        verbose_name_plural = _('event divisions')
+        verbose_name = _('event territorial division')
+        verbose_name_plural = _('event territorial divisions')
         unique_together = (('event', 'division'),)
 
 

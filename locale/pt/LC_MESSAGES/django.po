@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-10 17:56+0000\n"
+"POT-Creation-Date: 2019-02-20 04:11+0000\n"
 "PO-Revision-Date: 2019-01-26 20:22+0000\n"
 "Last-Translator: Cláudio Pereira <development@claudiop.com>\n"
 "Language: Portuguese\n"
@@ -10,6 +10,280 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: fons/models.py:24 location/models.py:27
+msgid "country"
+msgstr "país"
+
+#: fons/models.py:29
+msgid "parents"
+msgstr "parentes"
+
+#: fons/models.py:31
+msgid "homepage"
+msgstr "página ínicial"
+
+#: fons/models.py:32
+msgid "governmental"
+msgstr "governamental"
+
+#: fons/models.py:38
+msgid "source provider"
+msgstr "fornecedor de fonte"
+
+#: fons/models.py:39
+msgid "source providers"
+msgstr "fornecedores de fonte"
+
+#: fons/models.py:46 fons/models.py:262
+msgid "title"
+msgstr "título"
+
+#: fons/models.py:47 fons/models.py:183 fons/models.py:261 users/models.py:18
+msgid "language"
+msgstr "linguagem"
+
+#: fons/models.py:48 fons/models.py:185 fons/models.py:263
+msgid "description"
+msgstr "descrição"
+
+#: fons/models.py:49
+msgid "address"
+msgstr "endreço"
+
+#: fons/models.py:50
+msgid "provider"
+msgstr "fornecedor"
+
+#: fons/models.py:56 fons/models.py:115 fons/models.py:145
+msgid "source"
+msgstr "fonte"
+
+#: fons/models.py:57
+msgid "sources"
+msgstr "fontes"
+
+#: fons/models.py:71
+msgid "screenshot"
+msgstr "captura de ecrã"
+
+#: fons/models.py:72
+msgid "paywalled"
+msgstr "restrito a subscritores"
+
+#: fons/models.py:73
+msgid "source code"
+msgstr "código fonte"
+
+#: fons/models.py:76
+msgid "webpage"
+msgstr "página online"
+
+#: fons/models.py:77
+msgid "webpages"
+msgstr "páginas online"
+
+#: fons/models.py:107
+msgid "media"
+msgstr "média"
+
+#: fons/models.py:108
+msgid "medias"
+msgstr "médias"
+
+#: fons/models.py:119
+msgid "false"
+msgstr "falsa"
+
+#: fons/models.py:120
+msgid "tampered"
+msgstr "adulterado"
+
+#: fons/models.py:121
+msgid "speculative"
+msgstr "especulativo"
+
+#: fons/models.py:122
+msgid "partial"
+msgstr "parcial"
+
+#: fons/models.py:123 fons/models.py:234 fons/models.py:248
+msgid "generalization"
+msgstr "generalização"
+
+#: fons/models.py:124
+msgid "unfounded"
+msgstr "infundado"
+
+#: fons/models.py:126
+msgid "flaw"
+msgstr "falha"
+
+#: fons/models.py:131
+#, fuzzy
+#| msgid "Fallacies"
+msgid "fallacy"
+msgstr "Falácias"
+
+#: fons/models.py:133
+msgid "justification"
+msgstr "justificação"
+
+#: fons/models.py:134
+msgid "verified"
+msgstr "verificado"
+
+#: fons/models.py:140
+msgid "source flaw"
+msgstr "falha na fonte"
+
+#: fons/models.py:141
+msgid "source flaws"
+msgstr "falhas da fonte"
+
+#: fons/models.py:146
+msgid "content"
+msgstr "conteúdo"
+
+#: fons/models.py:147
+msgid "author"
+msgstr "autor"
+
+#: fons/models.py:153
+#, fuzzy
+#| msgid "location"
+msgid "citation"
+msgstr "localização"
+
+#: fons/models.py:154 fons/models.py:200
+#, fuzzy
+#| msgid "location"
+msgid "citations"
+msgstr "citações"
+
+#: fons/models.py:158 fons/models.py:184 users/models.py:8
+msgid "name"
+msgstr "nome"
+
+#: fons/models.py:173 fons/models.py:179 fons/models.py:233
+msgid "subject"
+msgstr "tópico"
+
+#: fons/models.py:174
+msgid "subjects"
+msgstr "tópicos"
+
+#: fons/models.py:191
+msgid "subject translation"
+msgstr "tradução do tópico"
+
+#: fons/models.py:192
+msgid "subject translations"
+msgstr "traduções do tópico"
+
+#: fons/models.py:197
+msgid "start"
+msgstr "início"
+
+#: fons/models.py:198
+msgid "end"
+msgstr "fim"
+
+#: fons/models.py:199
+msgid "children"
+msgstr "crianças"
+
+#: fons/models.py:205
+msgid "territorial divisions"
+msgstr "divisões territoriais"
+
+#: fons/models.py:207 users/models.py:23
+msgid "location"
+msgstr "localização"
+
+#: fons/models.py:212 fons/models.py:228
+msgid "events"
+msgstr "eventos"
+
+#: fons/models.py:227 fons/models.py:232 fons/models.py:246 fons/models.py:260
+msgid "event"
+msgstr "evento"
+
+#: fons/models.py:240
+msgid "event subject"
+msgstr "topico de evento"
+
+#: fons/models.py:241
+msgid "event subjects"
+msgstr "topicos de evento"
+
+#: fons/models.py:247
+msgid "territorial division"
+msgstr "divisão territorial"
+
+#: fons/models.py:254
+msgid "event territorial division"
+msgstr "divisão territorial de evento"
+
+#: fons/models.py:255
+msgid "event territorial divisions"
+msgstr "divisões territoriais de evento"
+
+#: fons/models.py:269
+msgid "event translation"
+msgstr "tradução de evento"
+
+#: fons/models.py:270
+msgid "event translations"
+msgstr "traduções de evento"
+
+#: fons/urls.py:10
+msgid "catalog"
+msgstr "catálogo"
+
+#: fons/urls.py:11
+msgid "subject/<int:identifier>"
+msgstr "topico/<int:identifier>"
+
+#: location/models.py:28
+msgid "region"
+msgstr "região"
+
+#: location/models.py:29
+msgid "autonomous region"
+msgstr "região autónoma"
+
+#: location/models.py:30
+msgid "district"
+msgstr "distrito"
+
+#: location/models.py:31
+msgid "municipality"
+msgstr "município"
+
+#: location/models.py:32
+msgid "parish"
+msgstr "freguesia"
+
+#: location/models.py:33
+msgid "island"
+msgstr "ilha"
+
+#: nietz/urls.py:9
+#, fuzzy
+#| msgid "Concepts"
+msgid "concepts/"
+msgstr "conceitos/"
+
+#: nietz/urls.py:10
+#, fuzzy
+#| msgid "Fallacies"
+msgid "fallacies/"
+msgstr "falacias/"
+
+#: nietz/urls.py:11
+msgid "fallacies/<int:identifier>/"
+msgstr "falacias/<int:identifier>/"
 
 #: templates/base.html:30
 #, fuzzy
@@ -136,6 +410,32 @@ msgstr ""
 msgid "Make your voice heard!"
 msgstr "Faz a tua voz ser ouvida!"
 
+#: templates/fons/base.html:17
+msgid "Catalog"
+msgstr "Catalogo"
+
+#: templates/fons/subject.html:11
+msgid "The current subject isn't translated."
+msgstr "O tópico atual não está traduzido."
+
+#: templates/fons/subject.html:12
+msgid "You might want to try one of the following languages:"
+msgstr "Pode querer tentar um dos seguintes idiomas:"
+
+#: templates/fons/subject.html:21
+msgid "Latest"
+msgstr "Últimas"
+
+#: templates/fons/subject.html:29
+#, fuzzy
+#| msgid "No translated examples."
+msgid "Untranslated event."
+msgstr "Sem exemplos traduzidos."
+
+#: templates/fons/subject.html:31
+msgid "Help out by translating from one of the available languages."
+msgstr "Ajuda traduzindo a partir de uma das linguagens disponíveis."
+
 #: templates/nietz/base.html:17
 msgid "Concepts"
 msgstr "Conceitos"
@@ -154,17 +454,18 @@ msgstr "Conceitos básicos de argumentação"
 
 #: templates/nietz/concepts.html:8
 msgid ""
-"This is a quick guide on some principles you need to know in order "
-"to know how to argue.<br> Consider these topics very very simplified. If you "
+"This is a quick guide on some principles you need to understand in order to "
+"know how to argue.<br> Consider these topics very very simplified. If you "
 "want to study them more extensively, consider a good philosophy book."
 msgstr ""
-"Este é um guia rápido para alguns dos princípios que necessita saber para"
-"saber argumentar.<br> Considere estes tópicos muito simplificados."
-"Se quiser estuda-los mais extensivamente, considere um bom livro de filosofia."
+"Este é um guia rápido para alguns dos princípios que necessita saber "
+"parasaber argumentar.<br> Considere estes tópicos muito simplificados.Se "
+"quiser estuda-los mais extensivamente, considere um bom livro de filosofia."
 
 #: templates/nietz/fallacies.html:7
 msgid "These are the most generic fallacies. Click them to learn more:"
-msgstr "Estas são as falácias mais abrangentes. Carregue nelas para aprender mais:"
+msgstr ""
+"Estas são as falácias mais abrangentes. Carregue nelas para aprender mais:"
 
 #: templates/nietz/fallacies.html:24
 msgid "There are a few more, but they haven't been translated yet:"
@@ -208,8 +509,7 @@ msgstr "Saiba as falácias de argumentação"
 #: templates/nietz/index.html:20
 msgid ""
 "Looking good and being persuasive isn't enough, make your argument sound!"
-msgstr ""
-"Ser bom falante não é suficiente, faça o seu argumento sólido!"
+msgstr "Ser bom falante não é suficiente, faça o seu argumento sólido!"
 
 #: templates/nietz/index.html:28
 msgid "Find your biases"
@@ -218,10 +518,6 @@ msgstr "Descubra as suas tendências"
 #: templates/nietz/index.html:29
 msgid "You're not only missing the point, you're losing your rationality!"
 msgstr "Não está apenas a perder a ideia, perde a sua racionalidade!"
-
-#: users/models.py:8
-msgid "name"
-msgstr "nome"
 
 #: users/models.py:10
 msgid "gender"
@@ -234,11 +530,3 @@ msgstr "homem"
 #: users/models.py:13
 msgid "female"
 msgstr "mulher"
-
-#: users/models.py:18
-msgid "language"
-msgstr "linguagem"
-
-#: users/models.py:23
-msgid "location"
-msgstr "localização"
