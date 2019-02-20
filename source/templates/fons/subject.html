@@ -1,0 +1,40 @@
+{% extends 'fons/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+    <div class="formatter subject-cover">
+        {% if subject_localized %}
+            <h1>{{ subject_localized.name }}</h1>
+            <p>{{ subject.localized.description| linebreaks }}</p>
+        {% else %}
+            <h1>{% trans "The current subject isn't translated." %}</h1>
+            <h3>{% trans "You might want to try one of the following languages:" %}</h3>
+            <ul>
+                {% for language in subject.languages %}
+                    <a href="{% url 'fons:subject' subject.id %}?l={{ language.alpha2 }}">{{ language.name }}</a>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div class="formatter event-list">
+        <h2>{% trans "Latest" %}:</h2>
+        {% for event in events.all %}
+            <div class="event">
+                {% if event.localized %}
+                    <h3>{{ event.localized.title }}</h3>
+                    <span>{{ event.localized.description }}</span>
+                {% else %}
+                    <h3>
+                        {% trans 'Untranslated event' %}
+                    </h3>
+                    <span>{% trans 'Help out by translating from one of the available languages.' %}</span><br>
+                    {% for language in entry.languages %}
+                        <a href="#">{{ language }}</a>,
+                    {% endfor %}
+                {% endif %}
+                <span style="float: right">{{ event.start|date:"SHORT_DATETIME_FORMAT" }} - {{ event.end |date:"SHORT_DATETIME_FORMAT" }}</span>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
