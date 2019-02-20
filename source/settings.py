@@ -19,6 +19,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'django_extensions',
+    'mptt',
+    'django_mptt_admin',
     'markdownx',
     'colorful',
     'users',

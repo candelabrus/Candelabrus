@@ -21,10 +21,15 @@ class EventDivisionAdmin(admin.TabularInline):
     model = m.EventDivisions
 
 
+class EventSubjectsAdmin(admin.TabularInline):
+    model = m.EventSubjects
+
+
 class EventAdmin(admin.ModelAdmin):
     inlines = [
         LocalizedEventAdmin,
-        EventDivisionAdmin
+        EventDivisionAdmin,
+        EventSubjectsAdmin
     ]
 
 

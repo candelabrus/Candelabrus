@@ -7,4 +7,6 @@ django-colorful
 django-extensions
 django-leaflet
 django-markdownx
+django-mptt
+django-mptt-admin
 pyrlamento
